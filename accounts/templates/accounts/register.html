@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Daftar{% endblock %}
+{% block content %}
+<h1>Daftar Akun</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><a href="{% url 'core:tos' %}" target="_blank">Baca Syarat & Ketentuan</a></p>
+    <button type="submit">Daftar</button>
+</form>
+<p>Sudah punya akun? <a href="{% url 'accounts:login' %}">Masuk</a></p>
+{% endblock %}

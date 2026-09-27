@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Syarat & Ketentuan{% endblock %}
+{% block content %}
+<h1>Syarat & Ketentuan</h1>
+{% if tos %}
+    <p><em>Versi: {{ tos.version }}</em></p>
+    <div>{{ tos.content|linebreaks }}</div>
+{% else %}
+    <p>Belum ada versi ToS aktif. Tambahkan lewat Django Admin.</p>
+{% endif %}
+{% endblock %}

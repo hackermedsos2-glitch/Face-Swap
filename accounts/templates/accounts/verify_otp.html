@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Verifikasi Email{% endblock %}
+{% block content %}
+<h1>Verifikasi Email</h1>
+<p>Kode verifikasi sudah dikirim ke <strong>{{ email }}</strong>.</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Verifikasi</button>
+</form>
+<form method="post" action="{% url 'accounts:resend_otp' %}">
+    {% csrf_token %}
+    <button type="submit">Kirim Ulang Kode</button>
+</form>
+{% endblock %}

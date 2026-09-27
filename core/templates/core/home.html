@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Beranda{% endblock %}
+{% block content %}
+<h1>Halo, {{ user.username }}</h1>
+<p>Status verifikasi email: {% if user.email_verified_at %}Terverifikasi{% else %}Belum{% endif %}</p>
+<p><em>Fitur generate/face-swap akan tersedia di tahap berikutnya.</em></p>
+<form method="post" action="{% url 'accounts:logout' %}">
+    {% csrf_token %}
+    <button type="submit">Keluar</button>
+</form>
+{% endblock %}
